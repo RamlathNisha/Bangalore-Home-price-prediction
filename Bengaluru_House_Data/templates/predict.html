@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+    <style>
+    td {
+        border :1px solid black;
+        background-color: aliceblue;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>House Price Predictor
+                Bangalore
+            </h2>
+            </h2>
+        </div>
+        <div class="body">
+           <!--<form action="{{ url_for('index') }}" method="POST">--> 
+                <table>
+                    <tr>
+                        <td><label>Area(sqft)</label></td>
+                        <td>{{ total_sqft }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>BHK</label></td>
+                        <td>{{  bhk }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Bathrooms</label></td>
+                        <td>{{ bath }}</td>
+                    </tr>
+                    <tr>
+                        <td><label>Location</label></td>
+                     <!--   <td><select name="location">
+                            <option value="None">None</option>
+                            {% for location in data.locations%}
+                                <option value="{{location}}">{{location}}</option>
+                            {% endfor %}
+                        </select></td> -->
+                        <td>{{ location }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Predicted price</b></label>
+                        </td>
+                        <td><b>{{ predicted_value }} Lakhs</b></td>
+                    </tr>
+                </table>
+                <br>
+
+                <div class="buttondiv" >
+                    <a href="{{ url_for('index') }}"><button type="submit"class="button">Predict another</button></a>
+           <!-- </form>--> 
+                </div>
+        </div>
+        <!--<div class="footer">
+            {{ predicted_value }}
+        </div>-->
+    </div>
+</body>
+</html>

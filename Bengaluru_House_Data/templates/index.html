@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>House Price Predictor
+                 Bangalore
+            </h2>
+        </div>
+        <div class="body">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <table>
+                    <tr>
+                        <td><label>Area(sqft)</label></td>
+                        <td><input type="text" name="area"></td>
+                    </tr>
+                    <tr>
+                        <td><label>BHK</label></td>
+                        <td><input type="text" name="bhk"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Bathrooms</label></td>
+                        <td><input type="text" name="bathrooms"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Location</label></td>
+                        <td>
+                            <select name="location">
+                                <option value="None">None</option>
+                                {% for location in data.locations%}
+                                    <option value="{{location}}">{{location}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div class="buttondiv">
+                    <button type="submit"class="button" >Predict Price</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
